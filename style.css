@@ -160,7 +160,7 @@ h1{
 #pet{
     width: 70px;
     height: 70px;
-    background-image: url('assets/pet.png');
+    background-image: url('./assets/pet.png');
     background-repeat: no-repeat;
 
     background-position: 0 0;

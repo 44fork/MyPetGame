@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>電子寵物</title>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>我的寵物</h1>
+
+    <!-- 標題區域：名字、等級、經驗值 -->
+    <div class="header">
+
+        <div id="nameContainer">
+            <span id="nameText">小雞</span>
+            <button id="editBtn" class="nameBtn">🖍</button>
+        </div>
+    
+        <div id="editArea" style="display: none;">
+            <input type="text" id="nameInput">
+            <button id="saveBtn" class="nameBtn">✓</button>
+        </div>
+
+        <span id="level">Lv.1</span>
+
+        <div class="status-item">
+            <span class="icon">⭐</span>
+            <div class="bar">
+                <div id="expBar" class="fill"></div>
+                <span id="expValue" class="value">Exp</span>
+            </div>
+        </div>
+
+        <div class="status-item">
+            <span class="icon">❤️</span>
+            <div class="bar">
+                <div id="healthBar" class="fill"></div>
+                <span id="healthValue" class="value">HP</span>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 狀態區域 -->
+    <div class="status">
+
+        <!-- 飽足度 -->
+        <div class="status-item">
+            <span class="icon">🍪</span>
+            <div class="bar">
+                <div id="hungerBar" class="fill"></div>
+                <span class="value" id="hungerValue"></span>
+            </div>
+        </div>
+
+        <!-- 活力 --> 
+        <div class="status-item">
+            <span class="icon">⚡</span>
+            <div class="bar">
+                <div id="energyBar" class="fill"></div>
+                <span class="value" id="energyValue"></span>
+            </div>
+        </div>
+
+        <!-- 心情 -->
+        <div class="status-item">
+            <span class="icon">😊</span>
+            <div class="bar">
+                <div id="happinessBar" class="fill"></div>
+                <span class="value" id="happinessValue"></span>
+            </div>            
+        </div>
+
+        <!-- 清潔 -->
+        <div class="status-item">
+            <span class="icon">🛁</span>
+            <div class="bar">
+                <div id="cleanBar" class="fill"></div>
+                <span class="value" id="cleanValue"></span>
+            </div>            
+        </div>
+
+    </div>
+
+    <!-- 內容區域 -->
+    <div class="game-container">
+  
+        <!-- 寵物區域 -->
+        <div class="pet-area">
+            <div id="pet" class="idle"></div>
+        </div>
+
+        <!-- 控制區域 -->
+        <div class="controls-area">
+            
+             <!-- 動作選擇區 -->
+            <div class="action-selector">
+                <div class="selector-row">
+                    <button class="arrow-btn">◀</button>
+                    <span class="action-text">散步</span>
+                    <button class="arrow-btn">▶</button>
+                </div>
+    
+                <button class="yes-btn">YES</button>
+            </div>
+
+            <button class="corner-btn left">A</button>
+            <button class="corner-btn right">B</button>
+            
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>  
+</body>
+
+</html>

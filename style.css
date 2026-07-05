@@ -1,0 +1,274 @@
+/* 設定整個容器的寬度 */
+body {
+    width: 95%; /* 改用百分比代替固定的 600px */
+    max-width: 800px; /* 設定最大限制，大螢幕時不會過寬 */
+    margin: 0 auto;
+    background-color: #fcdbf1;
+}
+
+h1{
+    font-size: 14px;
+}
+
+/* Header 區域 */
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* 垂直置中 */
+    height: 60px;
+    gap: 10px; /* 統一間距 */
+    width: 100%;
+    padding: 10px;
+    background: #000;
+    color: #fff;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+/* 禁止壓縮的項目 */
+#nameContainer, #editArea, #level {
+    flex: 0 0 auto; /* 不縮放，保持原始寬度 */
+    white-space: nowrap;
+}
+
+#nameText {
+    font-size: 1.25rem;
+    font-weight: bold;
+    white-space: nowrap;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+#nameInput {
+    font-size: 1.25rem;
+    font-weight: bold;
+    white-space: nowrap;
+    margin: 0;
+    flex-shrink: 0;
+    width: 150px; /* 設定輸入框的寬度 */
+}
+
+.nameBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    font-size: 1rem; /* 調整按鈕大小 */
+    color: #fff; /* 按鈕顏色 */
+    padding-right: 10px; /* 右邊留點空間 */
+    padding-left: 10px; /* 右邊留點空間 */
+}
+
+/* 讓裝名字和筆的容器變成一行 */
+#nameContainer {
+    display: flex;
+    align-items: center; /* 讓文字與按鈕垂直居中對齊 */
+    gap: 8px; /* 設定文字與按鈕之間的間距 */
+}
+
+/* 如果 editArea 也發生同樣狀況，也要加上 flex */
+#editArea {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#level {
+    font-size: 1rem;
+    white-space: nowrap; /* 強制文字不換行 */
+    margin: 0;
+    flex-shrink: 0; /* 防止元素被壓縮 */
+}
+
+/* 狀態區域 Grid 排版 */
+.status {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 15px;
+}
+
+.status-item {
+    flex: 1; /* 讓這兩個條狀物瓜分剩餘的寬度 */
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    min-width: 60px; /* 最小寬度，避免縮到看不見 */
+}
+
+.icon {
+    width: 25px;
+    text-align: center;
+}
+
+/* 進度條容器 */
+.bar {
+    flex: 1; /* 讓元素自動擴展以填滿空間 */
+    height: 20px;
+    background: #c6d5ff;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 進度條填滿層 */
+.fill {
+    width: 0;
+    height: 100%;
+    background: #7a99ff;
+    border-radius: 10px;
+    transition: width 0.3s ease; /* 平滑過度效果 */
+    position: relative; /* 確保它在 z-index 系統中 */
+    z-index: 0; /* 在底層 */
+}
+
+/* 進度條內部的文字 */
+.value {
+    position: absolute; /* 絕對定位 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center; /* 水平置中 */
+    align-items: center;
+    font-size: 12px;
+    color: #333;
+    font-weight: bold;
+    z-index: 10; /* 控制疊放順序（層級） */
+    pointer-events: none; /* 無視滑鼠事件 */
+}
+
+/* 內容區 */
+.game-container {
+  position: relative; /* 為了讓角落按鈕能使用絕對定位 */
+  height: 500px; /* 根據遊戲需求設定 */
+  display: flex;
+  flex-direction: column;
+}
+
+/* 寵物區 */
+.pet-area {
+  flex: 1; /* 佔據剩餘空間，確保主角在中間 */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* 將內容向上對齊 */
+  padding-top: 50px;
+}
+
+#pet{
+    width: 70px;
+    height: 70px;
+    background-image: url('assets/pet.png');
+    background-repeat: no-repeat;
+
+    background-position: 0 0;
+    animation: idle-anim 0.8s steps(1) infinite; /* 使用步進動畫，1幀，無限循環 */
+
+    image-rendering: pixelated; /* 確保像素風格的圖像不會被模糊化 */
+
+    transform: scale(5); /* 放大 */
+    transform-origin: center; /* 確保縮放是以中心為基準 */
+}
+
+@keyframes idle-anim {
+    0% { background-position: 0 0; }
+    50% { background-position: -70px 0; } /* 假設精靈圖的寬度是 70px */
+}
+
+/* 控制區 */
+.controls-area {
+  height: 100px;
+  position: relative; /* 內部元件可使用絕對定位 */
+  display: flex;
+  justify-content: center; /* 讓中間選單居中 */
+  align-items: center;
+}
+
+/* 角落按鈕 */
+.corner-btn {
+  position: absolute;
+  bottom: 10px;
+  border-radius: 100%;
+}
+
+.corner-btn.left { 
+  left: 10px; 
+  width: 40px;  
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem; /* 相對於 HTML 的「根元素」（也就是 <html> 標籤）的字體大小 */
+  cursor: pointer;
+  background-color: #000000; /* 給它一個顯眼的顏色 */
+  color: white;
+  border: none;
+  border-radius: 100%;
+}
+
+.corner-btn.right { 
+  right: 10px; 
+  width: 40px;  
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem; /* 相對於 HTML 的「根元素」（也就是 <html> 標籤）的字體大小 */
+  cursor: pointer;
+  background-color: #000000; /* 給它一個顯眼的顏色 */
+  color: white;
+  border: none;
+  border-radius: 100%;
+}
+
+/* 動作按鈕區 */
+.action-selector {
+    display: flex;          /* 開啟 Flex 佈局 */
+    flex-direction: column; /* 垂直排列 */
+    align-items: center;    /* 讓箭頭和文字在垂直方向上對齊（置中） */
+    justify-content: center; /* 讓整個選單在控制區域水平置中 */
+    gap: 50px;              /* 調整「按鈕」與「文字」之間的間距 */
+    padding: 10px;
+    position: relative; 
+    top: -80px; /* 數值越小（負越多），越往上移 */
+}
+
+/* 動作按鈕區 */
+.selector-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-radius: 100%;
+
+}
+
+.arrow-btn{
+    width: 40px;  
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem; /* 相對於 HTML 的「根元素」（也就是 <html> 標籤）的字體大小 */
+    cursor: pointer;
+    background-color: #000000; /* 給它一個顯眼的顏色 */
+    color: white;
+    border: none;
+    border-radius: 100%;
+}
+
+.yes-btn {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem; /* 相對於 HTML 的「根元素」（也就是 <html> 標籤）的字體大小 */
+    cursor: pointer;
+    background-color: #000000; /* 給它一個顯眼的顏色 */
+    color: white;
+    border: none;
+    border-radius: 100%;
+}
+

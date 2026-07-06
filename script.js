@@ -4,7 +4,7 @@ console.log("程式開始執行了！");
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 
 // 匯入認證功能
-import { getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
 
 // Firebase 設定檔
 const firebaseConfig = {
@@ -22,23 +22,37 @@ const app = initializeApp(firebaseConfig);
 
 // 啟用認證
 const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
 
-// 綁定到 HTML 按鈕
+// 登入按鈕
 document.getElementById("loginBtn").addEventListener("click", () => {
-  const provider = new GoogleAuthProvider();
-  signInWithRedirect(auth, provider);
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      // 登入成功
+      console.log("登入成功！使用者:", result.user.displayName);
+      alert("歡迎回來，" + result.user.displayName);
+    })
+    .catch((error) => {
+      // 處理錯誤
+      console.error("登入失敗:", error);
+      if (error.code === 'auth/popup-blocked') {
+        alert("瀏覽器攔截了視窗，請允許此網站彈出視窗。");
+      } else {
+        alert("登入發生錯誤：" + error.message);
+      }
+    });
 });
 
-// 當網頁重新載入時，Firebase 會自動去檢查是否有剛回傳的登入資訊
-getRedirectResult(auth)
-  .then((result) => {
-    if (result) {
-      console.log("登入成功！使用者:", result.user.displayName);
-    }
-  })
-  .catch((error) => {
-    console.error("登入失敗:", error.message);
-  });
+
+// 自動監聽登入狀態（網頁載入時自動執行）
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    console.log("目前已登入的用戶:", user.email);
+    // 這裡可以放你的遊戲初始化程式碼
+  } else {
+    console.log("尚未登入");
+  }
+});
 
 
 

@@ -1,3 +1,46 @@
+console.log("程式開始執行了！");
+
+// Firebase 匿名登入
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+
+// 匯入認證功能
+import { getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
+
+// Firebase 設定檔
+const firebaseConfig = {
+  apiKey: "AIzaSyD1a4TBPMnK3OdZ_qZV_e0QS9OR-NKdGu4",
+  projectId: "mypetgame666",
+  storageBucket: "mypetgame666.firebasestorage.app",
+  messagingSenderId: "740973406240",
+  appId: "1:740973406240:web:e9e88aa4b56c1e5ae4b445",
+  measurementId: "G-XYTPCMD7KQ"
+};
+
+// 初始化 Firebase
+const app = initializeApp(firebaseConfig);
+
+// 啟用認證
+const auth = getAuth(app);
+
+// 綁定到 HTML 按鈕
+document.getElementById("loginBtn").addEventListener("click", () => {
+  const provider = new GoogleAuthProvider();
+  signInWithRedirect(auth, provider);
+});
+
+// 當網頁重新載入時，Firebase 會自動去檢查是否有剛回傳的登入資訊
+getRedirectResult(auth)
+  .then((result) => {
+    if (result) {
+      console.log("登入成功！使用者:", result.user.displayName);
+    }
+  })
+  .catch((error) => {
+    console.error("登入失敗:", error.message);
+  });
+
+
+
 // Attributes
 let pet = {
     name: "Name",
@@ -17,7 +60,7 @@ const editArea = document.getElementById("editArea");
 const nameText = document.getElementById("nameText");
 const nameInput = document.getElementById("nameInput");
 const editBtn = document.getElementById("editBtn");
-const saveBtn = document.getElementById("saveBtn");
+const saveBtn = document.getElementById("saveBtn"); 
 
 const levelText = document.getElementById("level");
 const expBar = document.getElementById("expBar");
@@ -63,6 +106,41 @@ nameInput.addEventListener('keypress', function(event) {
         saveName();
     }
 });
+
+// 狀態陣列
+const statuskeys = ["hunger", "energy", "happiness", "cleanliness"];
+
+// 定時器
+setInterval(() => {
+    const randomIndex = Math.floor(Math.random() * statuskeys.length);
+    const randomKey = statuskeys[randomIndex];
+
+    const decreaseAmount = Math.floor(Math.random() * 5) + 1;
+
+    console.log(`正在扣除：${randomKey}，減少數值：${decreaseAmount}，目前值：${pet[randomKey]}`);
+
+    pet[randomKey] = Math.max(0, pet[randomKey] - decreaseAmount); // 限制不能是負數
+
+    updateScreen();
+
+    console.log(`更新後 ${randomKey} 為：${pet[randomKey]}`);
+
+}, 10000); // 每 30 秒執行一次
+
+// 數值歸零後的反應
+// 建立一個包含所有狀態數值的陣列
+const currentStatusValues = [pet.hunger, pet.energy, pet.happiness, pet.cleanliness];
+
+// 使用 some() 檢查是否「存在」任何一個數值等於 0
+const isAnyStatusZero = currentStatusValues.some(value => value === 0);
+
+if (isAnyStatusZero) {
+    pet.health = Math.max(0, pet.health - 2);
+    console.log("警告：有狀態已歸零！健康值下降中...");
+
+    updateScreen();
+}
+
 
 // 定義動作列表
 const actions = ["餵食", "睡覺", "玩耍", "洗澡"];

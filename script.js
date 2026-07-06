@@ -9,6 +9,7 @@ import { getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult } fr
 // Firebase 設定檔
 const firebaseConfig = {
   apiKey: "AIzaSyD1a4TBPMnK3OdZ_qZV_e0QS9OR-NKdGu4",
+  authDomain: "mypetgame666.firebaseapp.com",
   projectId: "mypetgame666",
   storageBucket: "mypetgame666.firebasestorage.app",
   messagingSenderId: "740973406240",

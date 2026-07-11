@@ -90,6 +90,7 @@ h1{
     grid-template-columns: 1fr 1fr;
     gap: 20px;
     padding: 15px;
+    margin-bottom:20px;
 }
 
 .status-item {
@@ -169,7 +170,7 @@ h1{
 
     image-rendering: pixelated; /* 確保像素風格的圖像不會被模糊化 */
 
-    transform: scale(5); /* 放大 */
+    transform: scale(4); /* 放大 */
     transform-origin: center; /* 確保縮放是以中心為基準 */
 }
 
@@ -359,4 +360,74 @@ h1{
     padding:12px 30px;
     font-size:20px;
     cursor:pointer;
+}
+
+/* 手機排版設定 */
+@media (max-width:768px){
+     body{
+        width:100%;
+        padding:10px;
+        box-sizing:border-box;
+    }
+
+    .header{
+        height:120px;
+        gap:15px;
+    }
+
+    #nameText{
+    font-size:1.5rem;
+    }
+
+    #level{
+        font-size:1.2rem;
+    }
+
+    .icon{
+        width:35px;
+        font-size:1.5rem;
+    }
+
+    .bar{
+        height:28px;
+    }
+
+    .value{
+        font-size:16px;
+    }
+
+    #pet{
+        transform:scale(8);
+    }
+
+    .pet-area{
+        padding-top:120px;
+    }
+
+    .yes-btn{
+        width:80px;
+        height:80px;
+        font-size:1.3rem;
+    }
+
+    .arrow-btn{
+        width:60px;
+        height:60px;
+        font-size:1.4rem;
+    }
+
+    .corner-btn.left,
+    .corner-btn.right{
+        width:60px;
+        height:60px;
+        font-size:1.4rem;
+    }
+
+    .action-selector{
+        bottom:20px;
+    }
+
+    .status{
+        margin-top:20px;
+    }
 }

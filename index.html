@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <h1>我的寵物</h1>
+    <h1>Pet Game</h1>
 
     <!-- 標題區域：名字、等級、經驗值 -->
     <div class="header">
@@ -91,7 +91,7 @@
   
         <!-- 寵物區域 -->
         <div class="pet-area">
-            <div id="pet" class="idle"></div>
+            <div id="pet"></div>
         </div>
 
         <!-- 控制區域 -->
@@ -101,21 +101,33 @@
             <div class="action-selector">
                 <div class="selector-row">
                     <button class="arrow-btn">◀</button>
-                    <span class="action-text">散步</span>
+                    <span id="actionText" class="action-text">餵食</span>
                     <button class="arrow-btn">▶</button>
                 </div>
     
                 <button class="yes-btn">YES</button>
             </div>
 
-            <button class="corner-btn left" id="loginBtn">Login</button>
-            <button class="corner-btn right">B</button>
+            <button class="corner-btn left" id="loginBtn">登入</button>
+            <button class="corner-btn right" id="restartGameBtn">重新開始</button>
             
         </div>
 
     </div>
 
     <script type="module" src="script.js"></script>
+
+    <div id="gameOverScreen">
+
+    <h1>💀 GAME OVER 💀</h1>
+
+    <p>你的寵物離開了...</p>
+
+    <button id="restartBtn">
+        重新開始
+    </button>
+
+    </div>  
 </body>
 
 </html>

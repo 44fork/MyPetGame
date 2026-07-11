@@ -1,13 +1,14 @@
 /* 設定整個容器的寬度 */
 body {
-    width: 95%; /* 改用百分比代替固定的 600px */
-    max-width: 800px; /* 設定最大限制，大螢幕時不會過寬 */
+    width: 95%;
+    max-width: 1600px;
     margin: 0 auto;
-    background-color: #fcdbf1;
+    background-color: #131313;
 }
 
 h1{
-    font-size: 14px;
+    font-size: 1rem;
+    color: #e600ff;
 }
 
 /* Header 區域 */
@@ -15,14 +16,15 @@ h1{
     display: flex;
     justify-content: center;
     align-items: center; /* 垂直置中 */
-    height: 60px;
-    gap: 10px; /* 統一間距 */
+    height:10vh;
+    gap: 20px; /* 統一間距 */
     width: 100%;
     padding: 10px;
-    background: #000;
-    color: #fff;
+    background: #ffffff33;
+    color: #000000;
     box-sizing: border-box;
     border-radius: 8px;
+    margin-bottom:20px;
 }
 
 /* 禁止壓縮的項目 */
@@ -32,11 +34,12 @@ h1{
 }
 
 #nameText {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: bold;
     white-space: nowrap;
     margin: 0;
     flex-shrink: 0;
+    color: #ea99f3;
 }
 
 #nameInput {
@@ -54,8 +57,8 @@ h1{
     cursor: pointer;
     padding: 0;
     margin: 0;
-    font-size: 1rem; /* 調整按鈕大小 */
-    color: #fff; /* 按鈕顏色 */
+    font-size: 1.5rem; /* 調整按鈕大小 */
+    color: #ea99f3; /* 按鈕顏色 */
     padding-right: 10px; /* 右邊留點空間 */
     padding-left: 10px; /* 右邊留點空間 */
 }
@@ -85,7 +88,7 @@ h1{
 .status {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    gap: 20px;
     padding: 15px;
 }
 
@@ -105,9 +108,9 @@ h1{
 /* 進度條容器 */
 .bar {
     flex: 1; /* 讓元素自動擴展以填滿空間 */
-    height: 20px;
-    background: #c6d5ff;
-    border-radius: 10px;
+    height: 30px;
+    background: #ea99f3;
+    border-radius: 20px;
     position: relative;
     overflow: hidden;
 }
@@ -116,8 +119,8 @@ h1{
 .fill {
     width: 0;
     height: 100%;
-    background: #7a99ff;
-    border-radius: 10px;
+    background: #e600ff;
+    border-radius: 20px;
     transition: width 0.3s ease; /* 平滑過度效果 */
     position: relative; /* 確保它在 z-index 系統中 */
     z-index: 0; /* 在底層 */
@@ -133,7 +136,7 @@ h1{
     display: flex;
     justify-content: center; /* 水平置中 */
     align-items: center;
-    font-size: 12px;
+    font-size: 1rem;
     color: #333;
     font-weight: bold;
     z-index: 10; /* 控制疊放順序（層級） */
@@ -154,17 +157,15 @@ h1{
   display: flex;
   justify-content: center;
   align-items: flex-start; /* 將內容向上對齊 */
-  padding-top: 50px;
+  padding-top: 70px;
 }
 
 #pet{
     width: 70px;
     height: 70px;
+
     background-image: url('assets/pet.png');
     background-repeat: no-repeat;
-
-    background-position: 0 0;
-    animation: idle-anim 0.8s steps(1) infinite; /* 使用步進動畫，1幀，無限循環 */
 
     image-rendering: pixelated; /* 確保像素風格的圖像不會被模糊化 */
 
@@ -172,14 +173,9 @@ h1{
     transform-origin: center; /* 確保縮放是以中心為基準 */
 }
 
-@keyframes idle-anim {
-    0% { background-position: 0 0; }
-    50% { background-position: -70px 0; } /* 假設精靈圖的寬度是 70px */
-}
-
 /* 控制區 */
 .controls-area {
-  height: 100px;
+  height: 150px;
   position: relative; /* 內部元件可使用絕對定位 */
   display: flex;
   justify-content: center; /* 讓中間選單居中 */
@@ -188,37 +184,38 @@ h1{
 
 /* 角落按鈕 */
 .corner-btn {
-  position: absolute;
-  bottom: 10px;
+  position: fixed;
+  bottom: 60px;
   border-radius: 100%;
+  font-weight: bold;
 }
 
 .corner-btn.left { 
-  left: 10px; 
-  width: 40px;  
-  height: 40px;
+  left: 60px; 
+  width: 80px;  
+  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1rem; /* 相對於 HTML 的「根元素」（也就是 <html> 標籤）的字體大小 */
   cursor: pointer;
-  background-color: #000000; /* 給它一個顯眼的顏色 */
-  color: white;
+  background-color: #ffd500; /* 給它一個顯眼的顏色 */
+  color: rgb(0, 0, 0);
   border: none;
   border-radius: 100%;
 }
 
 .corner-btn.right { 
-  right: 10px; 
-  width: 40px;  
-  height: 40px;
+  right: 60px; 
+  width: 80px;  
+  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1rem; /* 相對於 HTML 的「根元素」（也就是 <html> 標籤）的字體大小 */
   cursor: pointer;
-  background-color: #000000; /* 給它一個顯眼的顏色 */
-  color: white;
+  background-color: #ffd500; /* 給它一個顯眼的顏色 */
+  color: rgb(0, 0, 0);
   border: none;
   border-radius: 100%;
 }
@@ -232,16 +229,22 @@ h1{
     gap: 50px;              /* 調整「按鈕」與「文字」之間的間距 */
     padding: 10px;
     position: relative; 
-    top: -80px; /* 數值越小（負越多），越往上移 */
+    top: 20px; /* 數值越小（負越多），越往上移 */
 }
 
 /* 動作按鈕區 */
 .selector-row {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 80px;
     border-radius: 100%;
 
+}
+
+#actionText{
+    color: #00e1ff;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 .arrow-btn{
@@ -252,23 +255,108 @@ h1{
     align-items: center;
     font-size: 1rem; /* 相對於 HTML 的「根元素」（也就是 <html> 標籤）的字體大小 */
     cursor: pointer;
-    background-color: #000000; /* 給它一個顯眼的顏色 */
-    color: white;
+    background-color: #00e1ff; /* 給它一個顯眼的顏色 */
+    color: rgb(0, 0, 0);
     border: none;
     border-radius: 100%;
 }
 
 .yes-btn {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1rem; /* 相對於 HTML 的「根元素」（也就是 <html> 標籤）的字體大小 */
+    font-size: 1.5rem; /* 相對於 HTML 的「根元素」（也就是 <html> 標籤）的字體大小 */
     cursor: pointer;
-    background-color: #000000; /* 給它一個顯眼的顏色 */
-    color: white;
+    background-color: #00e1ff; /* 給它一個顯眼的顏色 */
+    color: rgb(0, 0, 0);
     border: none;
     border-radius: 100%;
+    font-weight: bold;
 }
 
+.arrow-btn,
+.yes-btn{
+    box-shadow: 
+        0 5px 0 #008d9f,   /* 下方厚度 */
+        0 8px 10px rgba(0,0,0,0.3); /* 陰影 */
+
+    cursor: pointer;
+
+    transition: 0.1s;
+}
+
+.corner-btn {
+    box-shadow: 
+        0 5px 0 #be9e00,   /* 下方厚度 */
+        0 8px 10px rgba(0,0,0,0.3); /* 陰影 */
+
+    cursor: pointer;
+
+    transition: 0.1s;
+}
+
+.arrow-btn:active,
+.yes-btn:active{
+
+    transform: translateY(5px);
+
+    box-shadow:
+        0 0 0 #008d9f,
+        0 3px 5px rgba(0,0,0,0.3);
+}
+
+.corner-btn:active {
+
+    transform: translateY(5px);
+
+    box-shadow:
+        0 0 0 #be9e00,
+        0 3px 5px rgba(0,0,0,0.3);
+}
+
+#gameOverScreen{
+    position:fixed;
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(162, 42, 42, 0.8);
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+    z-index:9999;
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.5s;
+}
+
+#gameOverScreen.show{
+    opacity:1;
+    visibility:visible;
+}
+
+#gameOverScreen h1{
+    font-size:48px;
+    margin-bottom:20px;
+}
+
+#gameOverScreen p{
+    font-size:24px;
+    margin-bottom:30px;
+}
+
+#restartBtn{
+    padding:12px 30px;
+    font-size:20px;
+    cursor:pointer;
+}

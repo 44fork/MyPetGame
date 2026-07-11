@@ -13,18 +13,34 @@ h1{
 
 /* Header 區域 */
 .header {
-    display: flex;
-    justify-content: center;
-    align-items: center; /* 垂直置中 */
-    height:10vh;
-    gap: 20px; /* 統一間距 */
-    width: 100%;
-    padding: 10px;
-    background: #ffffff33;
-    color: #000000;
-    box-sizing: border-box;
-    border-radius: 8px;
+    display:flex;
+    flex-direction:column;
+
+    gap:20px;
+    padding:20px;
+    background:#635e5e69;
+    border-radius:10px;
     margin-bottom:20px;
+}
+
+.header-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:15px;
+}
+
+.header-bars{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
 }
 
 /* 禁止壓縮的項目 */
@@ -78,7 +94,8 @@ h1{
 }
 
 #level {
-    font-size: 1rem;
+    font-size: 1.2rem;
+    color: #ea99f3;
     white-space: nowrap; /* 強制文字不換行 */
     margin: 0;
     flex-shrink: 0; /* 防止元素被壓縮 */
@@ -97,7 +114,7 @@ h1{
     flex: 1; /* 讓這兩個條狀物瓜分剩餘的寬度 */
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
     min-width: 60px; /* 最小寬度，避免縮到看不見 */
 }
 
@@ -230,7 +247,7 @@ h1{
     gap: 50px;              /* 調整「按鈕」與「文字」之間的間距 */
     padding: 10px;
     position: relative; 
-    top: 20px; /* 數值越小（負越多），越往上移 */
+    top: -20px; /* 數值越小（負越多），越往上移 */
 }
 
 /* 動作按鈕區 */
@@ -364,14 +381,18 @@ h1{
 
 /* 手機排版設定 */
 @media (max-width:768px){
-     body{
+    body{
         width:100%;
         padding:20px;
         box-sizing:border-box;
     }
 
     .header{
-        height:100px;
+        gap:12px;
+        padding:12px;
+    }
+
+    .header-top{
         gap:10px;
     }
 
@@ -409,7 +430,7 @@ h1{
     }
 
     .pet-area{
-        padding-top:50px;
+        padding-top:30px;
     }
 
     .yes-btn{
@@ -429,7 +450,7 @@ h1{
         width:70px;
         height:70px;
         font-size:0.8rem;
-        bottom:5px;
+        bottom:20px;
     }
 
     .corner-btn.left { 

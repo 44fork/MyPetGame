@@ -14,35 +14,47 @@
 <body>
     <h1>Pet Game</h1>
 
-    <!-- 標題區域：名字、等級、經驗值 -->
+    <!-- 標題區域 -->
     <div class="header">
 
-        <div id="nameContainer">
-            <span id="nameText">Name</span>
-            <button id="editBtn" class="nameBtn">🖍</button>
-        </div>
-    
-        <div id="editArea" style="display: none;">
-            <input type="text" id="nameInput">
-            <button id="saveBtn" class="nameBtn">✓</button>
-        </div>
+        <!-- 第一排 -->
+        <div class="header-top">
 
-        <span id="level">Lv.1</span>
-
-        <div class="status-item">
-            <span class="icon">⭐</span>
-            <div class="bar">
-                <div id="expBar" class="fill"></div>
-                <span id="expValue" class="value">Exp</span>
+            <div id="nameContainer">
+                <span id="nameText">Name</span>
+                <button id="editBtn" class="nameBtn">🖍</button>
             </div>
+
+            <div id="editArea" style="display:none;">
+                <input type="text" id="nameInput">
+                <button id="saveBtn" class="nameBtn">✓</button>
+            </div>
+
+            <span id="level">Lv.1</span>
+
         </div>
 
-        <div class="status-item">
-            <span class="icon">❤️</span>
-            <div class="bar">
-                <div id="healthBar" class="fill"></div>
-                <span id="healthValue" class="value">HP</span>
+        <!-- 第二排 -->
+        <div class="header-bars">
+
+            <div class="status-item">
+                <span class="icon">⭐</span>
+
+                <div class="bar">
+                    <div id="expBar" class="fill"></div>
+                    <span id="expValue" class="value">0/100</span>
+                </div>
             </div>
+
+            <div class="status-item">
+                <span class="icon">❤️</span>
+
+                <div class="bar">
+                    <div id="healthBar" class="fill"></div>
+                    <span id="healthValue" class="value">100/100</span>
+                </div>
+            </div>
+
         </div>
 
     </div>
@@ -102,9 +114,9 @@
              <!-- 動作選擇區 -->
             <div class="action-selector">
                 <div class="selector-row">
-                    <button class="arrow-btn">⮜</button>
+                    <button class="arrow-btn">◀</button>
                     <span id="actionText" class="action-text">餵食</span>
-                    <button class="arrow-btn">⮞</button>
+                    <button class="arrow-btn">▶</button>
                 </div>
     
                 <button class="yes-btn">YES</button>

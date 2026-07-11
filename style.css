@@ -24,22 +24,15 @@ h1{
 }
 
 .header-top{
-
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
     gap:15px;
 }
 
 .header-bars{
-
     display:flex;
-
     flex-direction:column;
-
     gap:15px;
 }
 
@@ -390,6 +383,7 @@ h1{
     .header{
         gap:12px;
         padding:12px;
+        margin-bottom:7px;
     }
 
     .header-top{
@@ -397,7 +391,7 @@ h1{
     }
 
     #nameText{
-    font-size:1.2rem;
+        font-size:1.2rem;
     }
 
     .nameBtn{
@@ -462,7 +456,8 @@ h1{
     }
 
     .action-selector{
-        top:-70px;
+        top:-100px;
+        gap:25px;
     }
 
     .selector-row{
@@ -470,6 +465,6 @@ h1{
     }
 
     .status{
-        margin-top:20px;
+        margin-top:7px;
     }
 }

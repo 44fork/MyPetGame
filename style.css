@@ -366,66 +366,86 @@ h1{
 @media (max-width:768px){
      body{
         width:100%;
-        padding:10px;
+        padding:20px;
         box-sizing:border-box;
-        background:red;
     }
 
     .header{
-        height:120px;
-        gap:15px;
+        height:100px;
+        gap:10px;
     }
 
     #nameText{
-    font-size:1.5rem;
+    font-size:1.2rem;
+    }
+
+    .nameBtn{
+        font-size:1rem;
     }
 
     #level{
-        font-size:1.2rem;
+        font-size:1rem;
     }
 
     .icon{
         width:35px;
-        font-size:1.5rem;
+        font-size:1rem;
     }
 
     .bar{
-        height:28px;
+        height:20px;
     }
 
     .value{
-        font-size:16px;
+        font-size:12px;
+    }
+
+    .controls-area{
+        height:220px;
     }
 
     #pet{
-        transform:scale(8);
+        transform:scale(3);
     }
 
     .pet-area{
-        padding-top:120px;
+        padding-top:50px;
     }
 
     .yes-btn{
-        width:80px;
-        height:80px;
-        font-size:1.3rem;
+        width:70px;
+        height:70px;
+        font-size:1rem;
     }
 
     .arrow-btn{
-        width:60px;
-        height:60px;
-        font-size:1.4rem;
+        width:50px;
+        height:50px;
+        font-size:1.5rem;
     }
 
     .corner-btn.left,
     .corner-btn.right{
-        width:60px;
-        height:60px;
-        font-size:1.4rem;
+        width:70px;
+        height:70px;
+        font-size:0.8rem;
+        bottom:5px;
+    }
+
+    .corner-btn.left { 
+        left: 30px; 
+    }
+
+    .corner-btn.right { 
+        right: 30px; 
     }
 
     .action-selector{
-        bottom:20px;
+        top:-70px;
+    }
+
+    .selector-row{
+        gap:30px;
     }
 
     .status{

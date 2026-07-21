@@ -353,7 +353,7 @@ setInterval(async() => {
     const user = auth.currentUser;
     if (user) await saveGameData(user.uid, pet);
 
-}, 60000); // 每 60 秒執行一次
+}, 15000); // 每 60 秒執行一次
 
 // 出生
 function showBirthScreen(){
@@ -826,14 +826,14 @@ yesBtn.addEventListener("click", () => {
         case "餵食":
 
             // 更新數值
-            pet.hunger = limitValue(pet.hunger + 10);
-            addExp(10);
-            pet.health = limitValue(pet.health + 10);
+            pet.hunger = limitValue(pet.hunger + 5);
+            addExp(5);
+            pet.health = limitValue(pet.health + 5);
 
             console.log("===== 餵食 =====");
-            console.log("hunger +10");
-            console.log("health +10");
-            console.log("exp +10");
+            console.log("hunger +5");
+            console.log("health +5");
+            console.log("exp +5");
 
             // 播放動畫
             playSprite("eat","happy", 200);
@@ -848,14 +848,14 @@ yesBtn.addEventListener("click", () => {
 
         case "睡覺":
 
-            pet.energy = limitValue(pet.energy + 20);
-            addExp(10);
-            pet.health = limitValue(pet.health + 10);
+            pet.energy = limitValue(pet.energy + 5);
+            addExp(5);
+            pet.health = limitValue(pet.health + 5);
 
             console.log("===== 睡覺 =====");
-            console.log("energy +10");
-            console.log("health +10");
-            console.log("exp +10");
+            console.log("energy +5");
+            console.log("health +5");
+            console.log("exp +5");
 
             playSprite("sleep","happy", 500, 3000);
 
@@ -869,16 +869,16 @@ yesBtn.addEventListener("click", () => {
 
         case "玩耍":
 
-            pet.happiness = limitValue(pet.happiness + 15);
+            pet.happiness = limitValue(pet.happiness + 5);
             pet.energy = limitValue(pet.energy-10);
-            addExp(10);
-            pet.health = limitValue(pet.health + 10);
+            addExp(5);
+            pet.health = limitValue(pet.health + 5);
 
             console.log("===== 玩耍 =====");
-            console.log("happiness +15");
+            console.log("happiness +5");
             console.log("energy -10");
-            console.log("health +10");
-            console.log("exp +10");
+            console.log("health +5");
+            console.log("exp +5");
 
             playSprite("play","happy", 200);
 
@@ -892,9 +892,9 @@ yesBtn.addEventListener("click", () => {
 
         case "洗澡":
 
-            pet.cleanliness = limitValue(pet.cleanliness + 20);
-            addExp(10);
-            pet.health = limitValue(pet.health + 10);
+            pet.cleanliness = limitValue(pet.cleanliness + 5);
+            addExp(5);
+            pet.health = limitValue(pet.health + 5);
 
             console.log("===== 洗澡 =====");
             console.log("cleanliness +20");
